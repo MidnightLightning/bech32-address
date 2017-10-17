@@ -26,10 +26,11 @@ class Bech32Address extends React.Component {
     let monoStyle = {
       fontFamily: 'monospace',
       fontSize: '1rem',
-      width: '50ch',
+      width: '65ch',
       position: 'absolute',
       padding: '0.2em',
-      margin: 0
+      margin: 0,
+      overflow: 'hidden'
     };
     if (typeof this.props.style !== 'undefined') {
       if (typeof this.props.style.fontFamily !== 'undefined') {
@@ -43,7 +44,8 @@ class Bech32Address extends React.Component {
     let underlayStyle = Object.assign({
       color: 'transparent',
       top: '0.2em',
-      left: '0.25em'
+      left: '0.25em',
+      height: '1.3em'
     }, monoStyle);
     let inputStyle = Object.assign({
       color: '#444',
@@ -84,6 +86,10 @@ class Bech32Address extends React.Component {
             type="text"
             value={this.state.address}
             onChange={this.handleChange}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
           />
         </div>
         <div className="address-input-errors" style={{ fontSize: '0.8rem', color: '#900' }}>{message}</div>
